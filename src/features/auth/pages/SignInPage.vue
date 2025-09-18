@@ -1,6 +1,6 @@
 <template>
   <main class="sign-in">
-    <form @submit.prevent="handleSubmit" class="sign-in__form">
+    <form @submit.prevent="authStore.sendDatas('signIn')" class="sign-in__form">
       <h2 class="sign-in__header">Sign In</h2>
       <input-field label="Email" placeholder="Enter your email" v-model="authStore.inputEmail" />
       <input-field
@@ -23,9 +23,6 @@ defineOptions({
 })
 
 const authStore = useAuthStore()
-async function handleSubmit() {
-  const data = await authStore.signUp()
-}
 </script>
 
 <style scoped>
