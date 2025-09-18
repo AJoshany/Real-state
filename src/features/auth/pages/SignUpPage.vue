@@ -1,7 +1,13 @@
 <template>
-  <main class="sign-in">
-    <form @submit.prevent="authStore.sendDatas('signIn')" class="sign-in__form">
-      <h2 class="sign-in__header">Sign In</h2>
+  <main class="sign-up">
+    <form class="sign-up__form" @submit.prevent="authStore.sendDatas('signUp')">
+      <h2 class="sign-up__header">Sign Up</h2>
+      <input-field
+        label="Username"
+        placeholder="Enter a username"
+        v-model="authStore.inputUserName"
+        :required="true"
+      />
       <input-field
         label="Email"
         placeholder="Enter your email"
@@ -16,30 +22,37 @@
         v-model="authStore.inputPassword"
         :required="true"
       />
-      <button class="sign-in__submit">Sign In</button>
+      <input-field
+        label="Repeat Password"
+        placeholder="Enter your password again"
+        inputType="password"
+        v-model="authStore.inputPasswordRepeat"
+        :required="true"
+      />
+      <button class="sign-up__submit">Sign Up</button>
     </form>
   </main>
 </template>
 
 <script setup>
-import { useAuthStore } from '../store/auth'
 import InputField from '@/components/InputField.vue'
+import { useAuthStore } from '../store/auth'
 
 defineOptions({
-  name: 'SignInPage',
+  name: 'SignUpPage',
 })
 
 const authStore = useAuthStore()
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.sign-in {
+.sign-up {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,7 +63,7 @@ const authStore = useAuthStore()
   padding: 1rem;
 }
 
-.sign-in__form {
+.sign-up__form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -60,13 +73,13 @@ const authStore = useAuthStore()
   min-width: 280px;
   margin: 1rem;
   padding: 1.5rem;
+
+  h2 {
+    font-size: 1.2rem;
+  }
 }
 
-.sign-in__header {
-  font-size: 18px;
-}
-
-.sign-in__submit {
+.sign-up__submit {
   background-color: #006eff;
   color: #fff;
   width: 100%;
@@ -76,9 +89,9 @@ const authStore = useAuthStore()
   border: none;
   cursor: pointer;
   transition: background-color 0.2s ease;
-}
 
-.sign-in__submit:hover {
-  background-color: #0057cc;
+  &:hover {
+    background-color: #0057cc;
+  }
 }
 </style>

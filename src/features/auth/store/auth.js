@@ -5,11 +5,11 @@ import { toast } from 'vue3-toastify'
 
 export const useAuthStore = defineStore('auth', () => {
   //* States:
-
   const user = ref(JSON.parse(localStorage.getItem('currentUser') || null))
-  const error = ref('')
   const inputEmail = ref('')
   const inputPassword = ref('')
+  const inputUserName = ref('')
+  const inputPasswordRepeat = ref('')
 
   const toastOptions = {
     position: toast.POSITION.TOP_RIGHT,
@@ -35,15 +35,13 @@ export const useAuthStore = defineStore('auth', () => {
 
   // Get User data from database
   async function getUser() {
-    const { data, error: err } = await supabase.auth.getUser()
-    err.value = ''
-    if (err) {
+    const { data, error } = await supabase.auth.getUser()
+    if (error) {
       setUser(null)
       toast('Error In Getting User Data', {
         type: 'error',
         ...toastOptions,
       })
-      error.value = err
     } else {
       setUser(data.user)
     }
@@ -53,11 +51,16 @@ export const useAuthStore = defineStore('auth', () => {
   async function signUp() {
     const email = inputEmail.value
     const password = inputPassword.value
-    error.value = ''
-    const { data, error: err } = await supabase.auth.signUp({ email, password })
-    if (err) {
-      error.value = err
-      console.log(err)
+    if (password !== inputPasswordRepeat.value) {
+      toast('Repeat Password Not Match!', {
+        type: 'error',
+        ...toastOptions,
+      })
+      return false
+    }
+    const { data, error } = await supabase.auth.signUp({ email, password })
+    if (error) {
+      console.log(error)
       toast('Invalid', {
         type: 'error',
         ...toastOptions,
@@ -77,18 +80,14 @@ export const useAuthStore = defineStore('auth', () => {
   async function signIn() {
     const email = inputEmail.value
     const password = inputPassword.value
-    error.value = ''
-    const { data, error: err } = await supabase.auth.signInWithPassword({ email, password })
-    console.log(err)
-    console.log(data)
-    if (err) {
-      error.value = err
-      console.log(err)
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password })
+
+    if (error) {
+      console.log(error)
       toast('Invalid', {
         type: 'error',
         ...toastOptions,
       })
-      console.log(err)
       return false
     } else {
       setUser(data.user)
@@ -102,14 +101,13 @@ export const useAuthStore = defineStore('auth', () => {
 
   // SignOut
   async function signOut() {
-    const { error: err } = await supabase.auth.signOut()
-    if (err) {
-      console.log(err)
+    const { error } = await supabase.auth.signOut()
+    if (error) {
+      console.log(error)
       toast('Error in Sign out', {
         type: 'error',
         ...toastOptions,
       })
-      error.value = err
     } else {
       setUser(null)
     }
@@ -119,19 +117,10 @@ export const useAuthStore = defineStore('auth', () => {
   async function sendDatas(type) {
     if (type == 'signUp') {
       await signUp()
-      if (error.value.length !== 0) {
-        console.log(error.value)
-      }
     } else if (type == 'signIn') {
       await signIn()
-      if (error.value.length !== 0) {
-        console.log(error.value)
-      }
     } else if (type == 'signOut') {
       await signOut()
-      if (error.value.length !== 0) {
-        console.log(error.value)
-      }
     }
   }
 
@@ -139,9 +128,10 @@ export const useAuthStore = defineStore('auth', () => {
 
   return {
     user,
-    error,
     inputEmail,
     inputPassword,
+    inputUserName,
+    inputPasswordRepeat,
     setUser,
     getUser,
     signUp,

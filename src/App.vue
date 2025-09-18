@@ -4,4 +4,8 @@
   <router-view />
 </template>
 
-<style scoped></style>
+<style scoped>
+* {
+  font-family: 'Poppins', sans-serif;
+}
+</style>
