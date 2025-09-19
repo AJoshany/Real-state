@@ -1,15 +1,20 @@
 <template>
   <div>
     Home
-
+    <HouseCardDetailed :house="appStore.houses[3]" />
     <button @click="authStore.sendDatas('signOut')">signOut</button>
+    <BottomNavBar />
   </div>
 </template>
 
 <script setup>
 import { useAuthStore } from '@/features/auth/store/auth'
+import HouseCardDetailed from '../components/HouseCardDetailed.vue'
+import { useAppStore } from '@/store/store'
+import BottomNavBar from '../components/BottomNavBar.vue'
 
 const authStore = useAuthStore()
+const appStore = useAppStore()
 defineOptions({
   name: 'HomePage',
 })
