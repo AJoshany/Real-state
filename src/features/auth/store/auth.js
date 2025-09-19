@@ -1,6 +1,7 @@
 import { supabase } from '@/services/supabase'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { toast } from 'vue3-toastify'
 
 export const useAuthStore = defineStore('auth', () => {
@@ -11,6 +12,7 @@ export const useAuthStore = defineStore('auth', () => {
   const inputUserName = ref('')
   const inputPasswordRepeat = ref('')
 
+  const router = useRouter()
   const toastOptions = {
     position: toast.POSITION.TOP_RIGHT,
     autoClose: 3000,
@@ -68,10 +70,15 @@ export const useAuthStore = defineStore('auth', () => {
       return false
     } else {
       setUser(data.user)
+
       toast('Sign Up Successfylly', {
         type: 'success',
         ...toastOptions,
       })
+      setTimeout(() => {
+        router.push('/')
+      }, 1500)
+
       return data
     }
   }
@@ -91,10 +98,15 @@ export const useAuthStore = defineStore('auth', () => {
       return false
     } else {
       setUser(data.user)
+
       toast('Sign In Successfylly', {
         type: 'success',
         ...toastOptions,
       })
+      setTimeout(() => {
+        router.push('/')
+      }, 1500)
+
       return data
     }
   }
@@ -110,6 +122,7 @@ export const useAuthStore = defineStore('auth', () => {
       })
     } else {
       setUser(null)
+      router.push('/sign-in')
     }
   }
 
