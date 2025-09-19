@@ -235,5 +235,13 @@ export const useAppStore = defineStore('store', () => {
     },
   ])
 
-  return { houses }
+  function toggleBookmark(id) {
+    houses.map((house) => {
+      if (house.id === id) {
+        house.isBookmarked = !house.isBookmarked
+      }
+    })
+  }
+
+  return { houses, toggleBookmark }
 })

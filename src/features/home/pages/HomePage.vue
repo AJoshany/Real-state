@@ -13,11 +13,11 @@
 
       <ul class="cards-list--detailed">
         <li v-for="house in appStore.houses" :key="house.id">
-          <HouseCardDetailed :house="house" />
+          <house-card-detailed :house="house" />
         </li>
       </ul>
       <button @click="authStore.sendDatas('signOut')">signOut</button>
-      <BottomNavBar />
+      <bottom-nav-bar />
     </section>
   </main>
 </template>

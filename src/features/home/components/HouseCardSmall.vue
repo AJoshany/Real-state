@@ -1,10 +1,14 @@
 <script setup>
+import { useAppStore } from '@/store/store'
+
 defineProps({
   house: {
     type: Object,
     required: true,
   },
 })
+
+const appStore = useAppStore()
 </script>
 
 <template>
@@ -21,7 +25,7 @@ defineProps({
           <span>{{ house.address }}</span>
         </p>
       </div>
-      <span class="card__bookmark">
+      <span @click="appStore.toggleBookmark(house.id)" class="card__bookmark">
         <img src="/icons/bookmark-icon.svg" alt="bookmark icon" />
       </span>
     </div>
