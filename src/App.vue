@@ -8,9 +8,9 @@
 :root {
   --color-primary: #006eff;
   --color-primary-hover: #0057cc;
-  --color-text-primary-light: #415770;
-  --color-primary-thin: #e5f0ff;
   --color-text-primary: #2f2f2f;
+  --color-text-thin-100: #e5f0ff;
+  --color-text-thin-200: #415770;
   --color-text-secondary: #8c8c8c;
   --color-mainBack: #f9fbff;
   --color-gray-100: #b9b9b9;
