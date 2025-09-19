@@ -119,7 +119,7 @@ defineProps({
   display: flex;
   align-items: center;
   gap: 0.3rem;
-  color: var(--color-text-primary-200);
+  color: var(--color-gray-400);
 }
 
 /* Footer */
