@@ -33,11 +33,6 @@ const authStore = useAuthStore()
 </script>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 .sign-in {
   display: flex;
