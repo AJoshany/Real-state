@@ -1,14 +1,29 @@
 <template>
-  <search class="search-bar">
-    <div class="input-container">
+  <section class="search-bar">
+    <form @submit.prevent="" class="input-container">
       <img class="search-icon" src="/icons/search-icon.svg" alt="search icon" />
-      <input class="search-field" type="text" placeholder="Search by address, city, or ZIP" />
-    </div>
+      <input
+        class="search-field"
+        type="text"
+        :value="modelValue"
+        @input="$emit('update:modelValue', $event.target.value)"
+        placeholder="Search by address, city, or ZIP"
+      />
+    </form>
     <img class="filter-icon" src="/icons/filter-icon.svg" alt="filter icon" />
-  </search>
+  </section>
 </template>
 
-<script setup></script>
+<script setup>
+defineProps({
+  modelValue: {
+    type: String,
+    required: true,
+  },
+})
+
+defineEmits(['update:modelValue'])
+</script>
 
 <style lang="scss" scoped>
 .search-bar {
