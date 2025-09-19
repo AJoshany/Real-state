@@ -10,13 +10,11 @@
   </header>
 </template>
 
-<script setup></script>
-
 <style lang="scss" scoped>
 .header {
   display: flex;
   justify-content: space-between;
-  margin: 0 3rem;
+  align-items: center;
 }
 
 .header__content {

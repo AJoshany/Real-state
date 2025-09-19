@@ -36,9 +36,10 @@ defineProps({
   gap: 1.5rem;
 
   width: clamp(15rem, 25rem, 35rem);
+  margin: 1rem;
   padding: 1.4rem;
   border-radius: 1rem;
-  box-shadow: 0 0 20px 10px rgb(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   cursor: pointer;
 
@@ -97,7 +98,7 @@ defineProps({
 
 .card__bookmark {
   padding: 0.9rem 1.1rem;
-  background-color: var(--color-primary-thin);
+  background-color: var(--color-text-tin-100);
   border-radius: 12px;
 }
 </style>

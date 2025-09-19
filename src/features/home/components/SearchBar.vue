@@ -29,8 +29,8 @@ defineEmits(['update:modelValue'])
 .search-bar {
   display: flex;
   gap: 1.2rem;
-  height: 40px;
-  margin: 3.5rem;
+
+  height: 5rem;
 }
 
 .input-container {
