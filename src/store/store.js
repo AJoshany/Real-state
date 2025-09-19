@@ -4,6 +4,7 @@ import { reactive } from 'vue'
 export const useAppStore = defineStore('store', () => {
   const houses = reactive([
     {
+      id: 1,
       name: 'Cozy Cottage',
       price: 250000,
       address: '123 Maple St, Springfield',
@@ -26,6 +27,7 @@ export const useAppStore = defineStore('store', () => {
       ],
     },
     {
+      id: 2,
       name: 'Modern Villa',
       price: 450000,
       address: '456 Oak Ave, Rivertown',
@@ -48,6 +50,7 @@ export const useAppStore = defineStore('store', () => {
       ],
     },
     {
+      id: 3,
       name: 'Urban Loft',
       price: 320000,
       address: '789 Pine Rd, Cityville',
@@ -70,6 +73,7 @@ export const useAppStore = defineStore('store', () => {
       ],
     },
     {
+      id: 4,
       name: 'Family Home',
       price: 380000,
       address: '101 Cedar Ln, Suburbia',
@@ -92,6 +96,7 @@ export const useAppStore = defineStore('store', () => {
       ],
     },
     {
+      id: 5,
       name: 'Luxury Condo',
       price: 600000,
       address: '202 Birch St, Downtown',
@@ -114,6 +119,7 @@ export const useAppStore = defineStore('store', () => {
       ],
     },
     {
+      id: 6,
       name: 'Rustic Retreat',
       price: 200000,
       address: '303 Elm Dr, Countryside',
@@ -136,6 +142,7 @@ export const useAppStore = defineStore('store', () => {
       ],
     },
     {
+      id: 7,
       name: 'City Apartment',
       price: 280000,
       address: '404 Spruce St, Metropolis',
@@ -158,6 +165,7 @@ export const useAppStore = defineStore('store', () => {
       ],
     },
     {
+      id: 8,
       name: 'Suburban Bungalow',
       price: 350000,
       address: '505 Willow Ave, Greenfields',
@@ -180,6 +188,7 @@ export const useAppStore = defineStore('store', () => {
       ],
     },
     {
+      id: 9,
       name: 'Penthouse Suite',
       price: 750000,
       address: '606 Chestnut Blvd, Uptown',
@@ -202,6 +211,7 @@ export const useAppStore = defineStore('store', () => {
       ],
     },
     {
+      id: 10,
       name: 'Country Estate',
       price: 500000,
       address: '707 Laurel Rd, Ruralville',
