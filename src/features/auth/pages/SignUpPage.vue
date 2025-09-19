@@ -54,38 +54,38 @@ const authStore = useAuthStore()
 
   width: 100%;
   height: 100vh;
-  padding: 1rem;
+  padding: 1.6rem;
 }
 
 .sign-up__form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 
   width: 100%;
-  max-width: 400px;
-  min-width: 280px;
-  margin: 1rem;
-  padding: 1.5rem;
+  max-width: 40rem;
+  min-width: 28rem;
+  margin: 1.6rem;
+  padding: 2rem;
 
   h2 {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
   }
 }
 
 .sign-up__submit {
-  background-color: #006eff;
+  background-color: var(--color-primary);
   color: #fff;
   width: 100%;
-  font-size: 17px;
-  padding: 15px 0;
-  border-radius: 70px;
+  font-size: 1.7rem;
+  padding: 1.5rem 0;
+  border-radius: 7rem;
   border: none;
   cursor: pointer;
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: #0057cc;
+    background-color: var(--color-primary-hover);
   }
 }
 </style>

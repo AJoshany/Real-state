@@ -45,21 +45,21 @@ defineEmits(['update:modelValue'])
 .input-field {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.2rem;
 
   label {
-    font-size: 0.9rem;
+    font-size: 1.4rem;
   }
 
   input {
-    padding: 15px 20px;
-    border-radius: 10px;
-    border: 1px solid #5c5c5c;
-    font-size: 0.9rem;
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    border: 1px solid var(--color-gray-500);
+    font-size: 1.4rem;
   }
 
   input[placeholder] {
-    color: #6a6a6a;
+    color: var(--color-gray-400);
   }
 }
 </style>

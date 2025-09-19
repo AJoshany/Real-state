@@ -33,7 +33,6 @@ const authStore = useAuthStore()
 </script>
 
 <style scoped>
-
 .sign-in {
   display: flex;
   flex-direction: column;
@@ -42,38 +41,38 @@ const authStore = useAuthStore()
 
   width: 100%;
   height: 100vh;
-  padding: 1rem;
+  padding: 1.6rem;
 }
 
 .sign-in__form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 
   width: 100%;
   max-width: 400px;
   min-width: 280px;
-  margin: 1rem;
-  padding: 1.5rem;
+  margin: 1.6rem;
+  padding: 2rem;
 }
 
 .sign-in__header {
-  font-size: 18px;
+  font-size: 1.8rem;
 }
 
 .sign-in__submit {
-  background-color: #006eff;
+  background-color: var(--color-primary);
   color: #fff;
   width: 100%;
-  font-size: 17px;
-  padding: 15px 0;
-  border-radius: 70px;
+  font-size: 1.7rem;
+  padding: 1.5rem 0;
+  border-radius: 7rem;
   border: none;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
 .sign-in__submit:hover {
-  background-color: #0057cc;
+  background-color: var(--color-primary-hover);
 }
 </style>
