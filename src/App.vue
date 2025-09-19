@@ -8,7 +8,8 @@
 :root {
   --color-primary: #006eff;
   --color-primary-hover: #0057cc;
-  --color-text-primary: #122d4d;
+  --color-primary-thin: #e5f0ff;
+  --color-text-primary: #2f2f2f;
   --color-text-secondary: #8c8c8c;
   --color-gray-100: #b9b9b9;
   --color-gray-200: #989898;
