@@ -1,5 +1,6 @@
 <template>
   <main class="estate-main">
+    <estate-header :house="house" />
     <estate-footer :house="house" v-show="showBookBtn" />
   </main>
 </template>
@@ -9,6 +10,7 @@ import { useRoute } from 'vue-router'
 import { useAppStore } from '@/store/store'
 import EstateFooter from '../components/EstateFooter.vue'
 import { onMounted, ref } from 'vue'
+import EstateHeader from '../components/EstateHeader.vue'
 
 const appStore = useAppStore()
 const route = useRoute()

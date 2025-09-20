@@ -1,7 +1,82 @@
 <template>
-  <div>header</div>
+  <section class="estate__header">
+    <div class="header__img-sec">
+      <img
+        src="https://www.tomferry.com/wp-content/uploads/2021/11/AdobeStock_220757323.jpg"
+        class="estate__header__img"
+        alt="estate pic"
+      />
+    </div>
+    <div class="estate__header__btns">
+      <div>
+        <div class="header__icon">
+          <img src="/assets/icons/back.svg" alt="back" />
+        </div>
+      </div>
+      <div class="header__btns__right">
+        <div class="header__icon">
+          <img src="/assets/icons/share.svg" alt="share" />
+        </div>
+        <div class="header__icon">
+          <img src="/assets/icons/heart.svg" alt="heart" />
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
-<script setup></script>
+<script setup>
+defineProps({
+  house: {
+    type: Object,
+    required: true,
+  },
+})
+</script>
 
-<style></style>
+<style scoped>
+.estate__header {
+  position: relative;
+}
+.header__img-sec {
+  height: 380px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.estate__header__img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.estate__header__btns {
+  position: absolute;
+  display: flex;
+  top: 30px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+.header__btns__right {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.header__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+}
+.header__icon img {
+  width: 20px;
+  height: 20px;
+}
+</style>
