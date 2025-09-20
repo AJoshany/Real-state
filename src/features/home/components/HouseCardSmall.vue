@@ -1,5 +1,5 @@
 <script setup>
-import { useAppStore } from '@/store/store'
+import { useBookmarkStroe } from '../store/bookmark'
 
 defineProps({
   house: {
@@ -8,7 +8,7 @@ defineProps({
   },
 })
 
-const appStore = useAppStore()
+const bookmarkStore = useBookmarkStroe()
 </script>
 
 <template>
@@ -25,8 +25,15 @@ const appStore = useAppStore()
           <span>{{ house.address }}</span>
         </p>
       </div>
-      <span @click="appStore.toggleBookmark(house.id)" class="card__bookmark">
-        <img src="/icons/bookmark-icon.svg" alt="bookmark icon" />
+      <span @click="bookmarkStore.toggleBookmark(house)" class="card__bookmark">
+        <img
+          :src="
+            house.isBookmarked
+              ? 'src/assets/img/carSmallBookmarked.svg'
+              : 'src/assets/img/carSmallnotBookmarked.svg'
+          "
+          alt="bookmark icon"
+        />
       </span>
     </div>
   </figure>

@@ -31,12 +31,19 @@ import SearchBar from '../components/SearchBar.vue'
 import HouseCardSmall from '../components/HouseCardSmall.vue'
 import HouseCardDetailed from '../components/HouseCardDetailed.vue'
 import BottomNavBar from '../components/BottomNavBar.vue'
+import { useBookmarkStroe } from '../store/bookmark'
+import { onMounted } from 'vue'
 
 const authStore = useAuthStore()
 const homeStore = useHomeStore()
 const appStore = useAppStore()
+const bookmarkStore = useBookmarkStroe()
 defineOptions({
   name: 'HomePage',
+})
+
+onMounted(async () => {
+  await bookmarkStore.loadBookmarks()
 })
 </script>
 
