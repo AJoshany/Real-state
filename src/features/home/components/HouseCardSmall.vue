@@ -12,31 +12,33 @@ const bookmarkStore = useBookmarkStroe()
 </script>
 
 <template>
-  <figure class="house-card">
-    <div class="image__container">
-      <img class="house__image" :src="house.gallery[0]" alt="house image" />
-    </div>
-    <div class="card__detail">
-      <div class="card__content">
-        <h3 class="house__name">{{ house.name }}</h3>
-        <span class="house__price">${{ house.price }}/month</span>
-        <p class="house__location">
-          <img src="/assets/icons/location-icon.svg" alt="location icon" />
-          <span>{{ house.address }}</span>
-        </p>
+  <RouterLink :to="`/house/${house.id}`">
+    <figure class="house-card">
+      <div class="image__container">
+        <img class="house__image" :src="house.gallery[0]" alt="house image" />
       </div>
-      <span @click="bookmarkStore.toggleBookmark(house)" class="card__bookmark">
-        <img
-          :src="
-            house.isBookmarked
-              ? '/assets/icons/carSmallBookmarked.svg'
-              : '/assets/icons/carSmallnotBookmarked.svg'
-          "
-          alt="bookmark icon"
-        />
-      </span>
-    </div>
-  </figure>
+      <div class="card__detail">
+        <div class="card__content">
+          <h3 class="house__name">{{ house.name }}</h3>
+          <span class="house__price">${{ house.price }}/month</span>
+          <p class="house__location">
+            <img src="/assets/icons/location-icon.svg" alt="location icon" />
+            <span>{{ house.address }}</span>
+          </p>
+        </div>
+        <span @click="bookmarkStore.toggleBookmark(house)" class="card__bookmark">
+          <img
+            :src="
+              house.isBookmarked
+                ? '/assets/icons/carSmallBookmarked.svg'
+                : '/assets/icons/carSmallnotBookmarked.svg'
+            "
+            alt="bookmark icon"
+          />
+        </span>
+      </div>
+    </figure>
+  </RouterLink>
 </template>
 
 <style lang="scss" scoped>

@@ -4,6 +4,7 @@ import SignUpPage from '@/features/auth/pages/SignUpPage.vue'
 import { useAuthStore } from '@/features/auth/store/auth'
 import { createPinia } from 'pinia'
 import HomePage from '@/features/home/pages/HomePage.vue'
+import EstatePage from '@/features/estate/pages/EstatePage.vue'
 
 const pinia = createPinia()
 const authStore = useAuthStore(pinia)
@@ -42,6 +43,18 @@ const routes = [
     path: '/',
     name: 'HomePage',
     component: HomePage,
+    beforeEnter: async (to, from, next) => {
+      if (await isLogin()) {
+        next()
+      } else {
+        next('/sign-in')
+      }
+    },
+  },
+  {
+    path: '/house/:id',
+    name: 'EstatePage',
+    component: EstatePage,
     beforeEnter: async (to, from, next) => {
       if (await isLogin()) {
         next()

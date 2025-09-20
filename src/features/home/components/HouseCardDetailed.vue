@@ -1,44 +1,46 @@
 <template>
-  <section class="detailed-card">
-    <div class="dcard__img-sec">
-      <img
-        class="dcard__img-sec"
-        src="https://images2.dwell.com/photos/6176523132546707456/6626530906155339776/original.jpg?auto=format&q=35&w=800"
-        alt=""
-      />
-    </div>
-    <div class="dcard__details">
-      <div class="dcard__datatils__header">
-        <div class="details__header__point">
-          <img src="/assets/icons/star.svg" alt="" />
-          <span>{{ house.rating }}</span>
-        </div>
-        <div class="details__header__type">
-          <p>Apartment</p>
-        </div>
+  <RouterLink :to="`/house/${house.id}`">
+    <section class="detailed-card">
+      <div class="dcard__img-sec">
+        <img
+          class="dcard__img-sec"
+          src="https://images2.dwell.com/photos/6176523132546707456/6626530906155339776/original.jpg?auto=format&q=35&w=800"
+          alt=""
+        />
       </div>
-      <div class="dcard__details__body">
-        <h3 class="details__body__title">{{ house.name }}</h3>
-        <div class="details__body__location">
-          <img src="/assets/icons/location1.svg" alt="" />
-          <span>{{ house.address }}</span>
-        </div>
-      </div>
-      <div class="dcard__details__footer">
-        <div class="details__footer__states">
-          <div class="footer__states__state">
-            <img src="/assets/icons/sqrt.svg" alt="" />
-            <span>{{ house.sqft }}</span>
+      <div class="dcard__details">
+        <div class="dcard__datatils__header">
+          <div class="details__header__point">
+            <img src="/assets/icons/star.svg" alt="" />
+            <span>{{ house.rating }}</span>
           </div>
-          <div class="footer__states__state">
-            <img src="/assets/icons/bed.svg" alt="" />
-            <span>{{ house.bedrooms }}</span>
+          <div class="details__header__type">
+            <p>Apartment</p>
           </div>
         </div>
-        <div class="footer__price">${{ house.price }}<span>/month</span></div>
+        <div class="dcard__details__body">
+          <h3 class="details__body__title">{{ house.name }}</h3>
+          <div class="details__body__location">
+            <img src="/assets/icons/location1.svg" alt="" />
+            <span>{{ house.address }}</span>
+          </div>
+        </div>
+        <div class="dcard__details__footer">
+          <div class="details__footer__states">
+            <div class="footer__states__state">
+              <img src="/assets/icons/sqrt.svg" alt="" />
+              <span>{{ house.sqft }}</span>
+            </div>
+            <div class="footer__states__state">
+              <img src="/assets/icons/bed.svg" alt="" />
+              <span>{{ house.bedrooms }}</span>
+            </div>
+          </div>
+          <div class="footer__price">${{ house.price }}<span>/month</span></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </RouterLink>
 </template>
 
 <script setup>

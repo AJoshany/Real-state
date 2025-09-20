@@ -266,5 +266,9 @@ export const useAppStore = defineStore('store', () => {
     }
   }
 
-  return { houses, bookedEstates, loadbookedEstates, toggleBookedEstate }
+  function findHouseById(id) {
+    return houses.find((house) => house.id === id)
+  }
+
+  return { houses, bookedEstates, loadbookedEstates, toggleBookedEstate, findHouseById }
 })
