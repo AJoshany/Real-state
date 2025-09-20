@@ -2,6 +2,9 @@
   <main class="estate-main">
     <estate-header :house="house" />
     <estate-footer :house="house" v-show="showBookBtn" />
+    <section class="estate__container">
+      <estate-title :house="house" />
+    </section>
   </main>
 </template>
 
@@ -11,6 +14,7 @@ import { useAppStore } from '@/store/store'
 import EstateFooter from '../components/EstateFooter.vue'
 import { onMounted, ref } from 'vue'
 import EstateHeader from '../components/EstateHeader.vue'
+import EstateTitle from '../components/EstateTitle.vue'
 
 const appStore = useAppStore()
 const route = useRoute()
@@ -29,4 +33,8 @@ defineOptions({
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.estate__container {
+  padding: 0 1.5rem;
+}
+</style>
