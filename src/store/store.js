@@ -1,5 +1,7 @@
+import { useAuthStore } from '@/features/auth/store/auth'
+import { supabase } from '@/services/supabase'
 import { defineStore } from 'pinia'
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 
 export const useAppStore = defineStore('store', () => {
   const houses = reactive([
@@ -8,7 +10,6 @@ export const useAppStore = defineStore('store', () => {
       name: 'Cozy Cottage',
       price: 250000,
       address: '123 Maple St, Springfield',
-      // isBookmarked: false,
       rating: 4.2,
       reviewCounts: 15,
       sqft: 1200,
@@ -31,7 +32,6 @@ export const useAppStore = defineStore('store', () => {
       name: 'Modern Villa',
       price: 450000,
       address: '456 Oak Ave, Rivertown',
-      // isBookmarked: true,
       rating: 4.8,
       reviewCounts: 22,
       sqft: 2000,
@@ -54,7 +54,6 @@ export const useAppStore = defineStore('store', () => {
       name: 'Urban Loft',
       price: 320000,
       address: '789 Pine Rd, Cityville',
-      // isBookmarked: false,
       rating: 4.0,
       reviewCounts: 10,
       sqft: 1500,
@@ -77,7 +76,6 @@ export const useAppStore = defineStore('store', () => {
       name: 'Family Home',
       price: 380000,
       address: '101 Cedar Ln, Suburbia',
-      // isBookmarked: true,
       rating: 4.5,
       reviewCounts: 18,
       sqft: 1800,
@@ -100,7 +98,6 @@ export const useAppStore = defineStore('store', () => {
       name: 'Luxury Condo',
       price: 600000,
       address: '202 Birch St, Downtown',
-      // isBookmarked: false,
       rating: 4.9,
       reviewCounts: 25,
       sqft: 2200,
@@ -123,7 +120,6 @@ export const useAppStore = defineStore('store', () => {
       name: 'Rustic Retreat',
       price: 200000,
       address: '303 Elm Dr, Countryside',
-      // isBookmarked: true,
       rating: 4.1,
       reviewCounts: 12,
       sqft: 1000,
@@ -146,7 +142,7 @@ export const useAppStore = defineStore('store', () => {
       name: 'City Apartment',
       price: 280000,
       address: '404 Spruce St, Metropolis',
-      // isBookmarked: false,
+
       rating: 3.9,
       reviewCounts: 8,
       sqft: 900,
@@ -169,7 +165,7 @@ export const useAppStore = defineStore('store', () => {
       name: 'Suburban Bungalow',
       price: 350000,
       address: '505 Willow Ave, Greenfields',
-      // isBookmarked: true,
+
       rating: 4.3,
       reviewCounts: 20,
       sqft: 1600,
@@ -192,7 +188,7 @@ export const useAppStore = defineStore('store', () => {
       name: 'Penthouse Suite',
       price: 750000,
       address: '606 Chestnut Blvd, Uptown',
-      // isBookmarked: false,
+
       rating: 4.7,
       reviewCounts: 30,
       sqft: 2500,
@@ -215,7 +211,7 @@ export const useAppStore = defineStore('store', () => {
       name: 'Country Estate',
       price: 500000,
       address: '707 Laurel Rd, Ruralville',
-      // isBookmarked: true,
+
       rating: 4.4,
       reviewCounts: 16,
       sqft: 3000,
@@ -235,13 +231,40 @@ export const useAppStore = defineStore('store', () => {
     },
   ])
 
-  function toggleBookmark(id) {
-    houses.map((house) => {
-      if (house.id === id) {
-        house.isBookmarked = !house.isBookmarked
-      }
+  const bookedEstates = ref([])
+
+  const authStore = useAuthStore()
+
+  async function loadbookedEstates() {
+    await authStore.getUser()
+    if (!authStore.user) return false
+    let { data } = await supabase.from('bookedEstates').select('estate_id')
+    bookedEstates.value = data.map((e) => e.estate_id)
+
+    houses.forEach((house) => {
+      house.isBooked = bookedEstates.value.includes(house.id)
     })
   }
 
-  return { houses, toggleBookmark }
+  async function toggleBookedEstate(house) {
+    await authStore.getUser()
+    if (!authStore.user) {
+      alert('Please login first')
+      return
+    }
+    if (house.isBooked) {
+      await supabase
+        .from('bookedEstates')
+        .delete()
+        .match({ user_id: authStore.user.id, estate_id: house.id })
+      house.isBooked = false
+    } else {
+      await supabase
+        .from('bookedEstates')
+        .insert([{ user_id: authStore.user.id, estate_id: house.id }])
+      house.isBooked = true
+    }
+  }
+
+  return { houses, bookedEstates, loadbookedEstates, toggleBookedEstate }
 })
