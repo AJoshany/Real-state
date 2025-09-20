@@ -21,7 +21,7 @@ const bookmarkStore = useBookmarkStroe()
         <h3 class="house__name">{{ house.name }}</h3>
         <span class="house__price">${{ house.price }}/month</span>
         <p class="house__location">
-          <img src="/icons/location-icon.svg" alt="location icon" />
+          <img src="/assets/icons/location-icon.svg" alt="location icon" />
           <span>{{ house.address }}</span>
         </p>
       </div>
@@ -29,8 +29,8 @@ const bookmarkStore = useBookmarkStroe()
         <img
           :src="
             house.isBookmarked
-              ? 'src/assets/img/carSmallBookmarked.svg'
-              : 'src/assets/img/carSmallnotBookmarked.svg'
+              ? '/assets/icons/carSmallBookmarked.svg'
+              : '/assets/icons/carSmallnotBookmarked.svg'
           "
           alt="bookmark icon"
         />

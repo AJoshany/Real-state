@@ -1,16 +1,16 @@
 <template>
   <nav class="nav-main">
     <router-link to="/" class="nav-link active-link">
-      <img src="/src/assets/img/home.svg" alt="" />
+      <img src="/assets/icons/home.svg" alt="" />
     </router-link>
     <router-link to="/map" class="nav-link">
-      <img src="/src/assets/img/location2.svg" alt="" />
+      <img src="/assets/icons/location2.svg" alt="" />
     </router-link>
     <router-link to="/dashboard" class="nav-link">
-      <img src="/src/assets/img/bookmark.svg" alt="" />
+      <img src="/assets/icons/bookmark.svg" alt="" />
     </router-link>
     <router-link to="/dashboard" class="nav-link">
-      <img src="/src/assets/img/person.svg" alt="" />
+      <img src="/assets/icons/person.svg" alt="" />
     </router-link>
   </nav>
 </template>

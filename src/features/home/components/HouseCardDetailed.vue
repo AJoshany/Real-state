@@ -10,7 +10,7 @@
     <div class="dcard__details">
       <div class="dcard__datatils__header">
         <div class="details__header__point">
-          <img src="/src/assets/img/star.svg" alt="" />
+          <img src="/assets/icons/star.svg" alt="" />
           <span>{{ house.rating }}</span>
         </div>
         <div class="details__header__type">
@@ -20,18 +20,18 @@
       <div class="dcard__details__body">
         <h3 class="details__body__title">{{ house.name }}</h3>
         <div class="details__body__location">
-          <img src="/src/assets/img/location1.svg" alt="" />
+          <img src="/assets/icons/location1.svg" alt="" />
           <span>{{ house.address }}</span>
         </div>
       </div>
       <div class="dcard__details__footer">
         <div class="details__footer__states">
           <div class="footer__states__state">
-            <img src="/src/assets/img/sqrt.svg" alt="" />
+            <img src="/assets/icons/sqrt.svg" alt="" />
             <span>{{ house.sqft }}</span>
           </div>
           <div class="footer__states__state">
-            <img src="/src/assets/img/bed.svg" alt="" />
+            <img src="/assets/icons/bed.svg" alt="" />
             <span>{{ house.bedrooms }}</span>
           </div>
         </div>

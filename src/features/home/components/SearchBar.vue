@@ -1,7 +1,7 @@
 <template>
   <section class="search-bar">
     <form @submit.prevent="" class="input-container">
-      <img class="search-icon" src="/icons/search-icon.svg" alt="search icon" />
+      <img class="search-icon" src="/assets/icons/search-icon.svg" alt="search icon" />
       <input
         class="search-field"
         type="text"
@@ -10,7 +10,7 @@
         placeholder="Search by address, city, or ZIP"
       />
     </form>
-    <img class="filter-icon" src="/icons/filter-icon.svg" alt="filter icon" />
+    <img class="filter-icon" src="/assets/icons/filter-icon.svg" alt="filter icon" />
   </section>
 </template>
 
