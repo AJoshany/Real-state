@@ -16,14 +16,12 @@
           <house-card-detailed :house="house" />
         </li>
       </ul>
-      <button @click="authStore.sendDatas('signOut')">signOut</button>
       <bottom-nav-bar />
     </section>
   </main>
 </template>
 
 <script setup>
-import { useAuthStore } from '@/features/auth/store/auth'
 import { useAppStore } from '@/store/store'
 import { useHomeStore } from '../store/home'
 import HomeHeader from '../components/HomeHeader.vue'
@@ -34,7 +32,6 @@ import BottomNavBar from '../components/BottomNavBar.vue'
 import { useBookmarkStroe } from '../store/bookmark'
 import { onMounted } from 'vue'
 
-const authStore = useAuthStore()
 const homeStore = useHomeStore()
 const appStore = useAppStore()
 const bookmarkStore = useBookmarkStroe()
@@ -55,6 +52,7 @@ onMounted(async () => {
 
   width: 100%;
   padding: 1.6rem;
+  margin-bottom: 70px;
 }
 
 .home-page__group {
