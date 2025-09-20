@@ -3,27 +3,33 @@
     <div class="footer__left">
       <p class="footer__total-price">Total Price</p>
       <p class="footer__price">
-        ${{ price }}
+        ${{ house.price }}
         <span class="footer__month">/month</span>
       </p>
     </div>
     <div class="footer__right">
-      <button class="footer__btn" :disabled="isBooked">Book Now</button>
+      <button
+        class="footer__btn"
+        @click="appStore.toggleBookedEstate(house)"
+        :disabled="house.isBooked"
+      >
+        Book Now
+      </button>
     </div>
   </section>
 </template>
 
 <script setup>
+import { useAppStore } from '@/store/store'
+
 defineProps({
-  isBooked: {
-    type: Boolean,
-    required: true,
-  },
-  price: {
-    type: String,
+  house: {
+    type: Object,
     required: true,
   },
 })
+
+const appStore = useAppStore()
 </script>
 
 <style>
@@ -54,6 +60,12 @@ defineProps({
   padding: 0.8rem 3.5rem;
   border: none;
   border-radius: var(--radius-xl);
+  cursor: pointer;
+}
+
+.footer__btn:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 .footer__left {
