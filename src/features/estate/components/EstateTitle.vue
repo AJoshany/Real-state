@@ -27,13 +27,14 @@ defineProps({
 .estate__title {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+
   width: 100%;
   gap: 1rem;
 }
 
 .title__header {
   display: flex;
+  padding-top: 1.5rem;
   width: 100%;
   justify-content: space-between;
 }
