@@ -240,7 +240,6 @@ export const useAppStore = defineStore('store', () => {
     if (!authStore.user) return false
     let { data } = await supabase.from('bookedEstates').select('estate_id')
     bookedEstates.value = data.map((e) => e.estate_id)
-    console.log(bookedEstates.value)
 
     houses.forEach((house) => {
       house.isBooked = bookedEstates.value.includes(house.id)
