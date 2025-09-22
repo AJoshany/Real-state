@@ -1,7 +1,7 @@
 import { useAuthStore } from '@/features/auth/store/auth'
 import { supabase } from '@/services/supabase'
 import { defineStore } from 'pinia'
-import { reactive, ref } from 'vue'
+import { computed, reactive, ref } from 'vue'
 
 export const useAppStore = defineStore('store', () => {
   const houses = reactive([
@@ -281,6 +281,10 @@ export const useAppStore = defineStore('store', () => {
     },
   ])
 
+  const bookmarkedHouses = computed(() => {
+    return houses.filter((h) => h.isBookmarked)
+  })
+
   const bookedEstates = ref([])
 
   const authStore = useAuthStore()
@@ -320,5 +324,12 @@ export const useAppStore = defineStore('store', () => {
     return houses.find((house) => house.id === id)
   }
 
-  return { houses, bookedEstates, loadbookedEstates, toggleBookedEstate, findHouseById }
+  return {
+    houses,
+    bookedEstates,
+    bookmarkedHouses,
+    loadbookedEstates,
+    toggleBookedEstate,
+    findHouseById,
+  }
 })

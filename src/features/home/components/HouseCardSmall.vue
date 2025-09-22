@@ -52,7 +52,7 @@ const bookmarkStore = useBookmarkStroe()
   gap: 1.5rem;
 
   width: clamp(15rem, 25rem, 35rem);
-  margin: 1rem;
+  margin: 1rem 0;
   padding: 1.4rem;
   border-radius: 1rem;
   box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
