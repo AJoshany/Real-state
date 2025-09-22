@@ -1,21 +1,30 @@
 <template>
   <nav class="nav-main">
-    <router-link to="/" class="nav-link active-link">
+    <router-link to="/" class="nav-link" :class="{ 'active-link': route.path == '/' }">
       <img src="/assets/icons/home.svg" alt="" />
     </router-link>
-    <router-link to="/map" class="nav-link">
+    <router-link to="/" class="nav-link">
       <img src="/assets/icons/location2.svg" alt="" />
     </router-link>
     <router-link to="/dashboard" class="nav-link">
       <img src="/assets/icons/bookmark.svg" alt="" />
     </router-link>
-    <router-link to="/dashboard" class="nav-link">
+    <router-link
+      to="/dashboard"
+      class="nav-link"
+      :class="{ 'active-link': route.path == '/dashboard' }"
+    >
       <img src="/assets/icons/person.svg" alt="" />
     </router-link>
   </nav>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+console.log(route)
+</script>
 
 <style scoped>
 .nav-main {
