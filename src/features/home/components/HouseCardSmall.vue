@@ -12,12 +12,15 @@ const bookmarkStore = useBookmarkStroe()
 </script>
 
 <template>
-  <RouterLink :to="`/house/${house.id}`">
-    <figure class="house-card">
+  <figure class="house-card">
+    <RouterLink :to="`/house/${house.id}`" class="router-link">
       <div class="image__container">
         <img class="house__image" :src="house.gallery[0]" alt="house image" />
       </div>
-      <div class="card__detail">
+    </RouterLink>
+
+    <div class="card__detail">
+      <RouterLink :to="`/house/${house.id}`" class="router-link">
         <div class="card__content">
           <h3 class="house__name">{{ house.name }}</h3>
           <span class="house__price">${{ house.price }}/month</span>
@@ -26,19 +29,19 @@ const bookmarkStore = useBookmarkStroe()
             <span>{{ house.address }}</span>
           </p>
         </div>
-        <span @click="bookmarkStore.toggleBookmark(house)" class="card__bookmark">
-          <img
-            :src="
-              house.isBookmarked
-                ? '/assets/icons/carSmallBookmarked.svg'
-                : '/assets/icons/carSmallnotBookmarked.svg'
-            "
-            alt="bookmark icon"
-          />
-        </span>
-      </div>
-    </figure>
-  </RouterLink>
+      </RouterLink>
+      <span @click="bookmarkStore.toggleBookmark(house)" class="card__bookmark">
+        <img
+          :src="
+            house.isBookmarked
+              ? '/assets/icons/carSmallBookmarked.svg'
+              : '/assets/icons/carSmallnotBookmarked.svg'
+          "
+          alt="bookmark icon"
+        />
+      </span>
+    </div>
+  </figure>
 </template>
 
 <style lang="scss" scoped>
@@ -59,6 +62,10 @@ const bookmarkStore = useBookmarkStroe()
   &:hover {
     transform: translateY(-0.2rem);
   }
+}
+
+.router-link {
+  width: 100%;
 }
 
 .image__container {
