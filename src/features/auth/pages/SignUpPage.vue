@@ -30,6 +30,10 @@
         :required="true"
       />
       <button class="sign-up__submit">Sign Up</button>
+      <p class="sign-up__question">
+        Already have an account?
+        <span class="sign-in__btn" @click="router.push('/sign-in')">Sign In</span>
+      </p>
     </form>
   </main>
 </template>
@@ -37,12 +41,15 @@
 <script setup>
 import InputField from '@/components/InputField.vue'
 import { useAuthStore } from '../store/auth'
+import { useRouter } from 'vue-router'
 
 defineOptions({
   name: 'SignUpPage',
 })
 
 const authStore = useAuthStore()
+
+const router = useRouter()
 </script>
 
 <style lang="scss" scoped>
@@ -87,5 +94,14 @@ const authStore = useAuthStore()
   &:hover {
     background-color: var(--color-primary-hover);
   }
+}
+
+.sign-up__question {
+  font-size: 1.4rem;
+  color: var(--color-text-secondary);
+}
+.sign-in__btn {
+  color: var(--color-primary);
+  cursor: pointer;
 }
 </style>

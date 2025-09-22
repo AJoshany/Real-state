@@ -17,11 +17,16 @@
         :required="true"
       />
       <button class="sign-in__submit">Sign In</button>
+      <p class="sign-in__question">
+        Dont have an account?
+        <span class="sign-up__btn" @click="router.push('/sign-up')">Sign Up</span>
+      </p>
     </form>
   </main>
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
 import { useAuthStore } from '../store/auth'
 import InputField from '@/components/InputField.vue'
 
@@ -30,6 +35,8 @@ defineOptions({
 })
 
 const authStore = useAuthStore()
+
+const router = useRouter()
 </script>
 
 <style scoped>
@@ -74,5 +81,13 @@ const authStore = useAuthStore()
 
 .sign-in__submit:hover {
   background-color: var(--color-primary-hover);
+}
+.sign-in__question {
+  font-size: 1.4rem;
+  color: var(--color-text-secondary);
+}
+.sign-up__btn {
+  color: var(--color-primary);
+  cursor: pointer;
 }
 </style>
