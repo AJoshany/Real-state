@@ -12,10 +12,15 @@ export const useAppStore = defineStore('store', () => {
       address: '123 Maple St, Springfield',
       rating: 4.2,
       reviewCounts: 15,
-      sqft: 1200,
-      bedrooms: 2,
-      bathrooms: 1,
-      facilities: ['car parking', 'wi-fi'],
+      details: [
+        { unit: 'Square Feet', value: 1200, icon: '/assets/icons/house-size-icon.svg' },
+        { unit: 'Bedrooms', value: 2, icon: '/assets/icons/bedroom-icon.svg' },
+        { unit: 'Bathrooms', value: 1, icon: '/assets/icons/bathroom-icon.svg' },
+      ],
+      facilities: [
+        { name: 'car parking', icon: '/assets/icons/car-parking-icon.svg' },
+        { name: 'wi-fi', icon: '/assets/icons/wifi-icon.svg' },
+      ],
       gallery: ['https://example.com/house1/img1.jpg', 'https://example.com/house1/img2.jpg'],
       reviews: [
         {
@@ -34,10 +39,17 @@ export const useAppStore = defineStore('store', () => {
       address: '456 Oak Ave, Rivertown',
       rating: 4.8,
       reviewCounts: 22,
-      sqft: 2000,
-      bedrooms: 4,
-      bathrooms: 3,
-      facilities: ['car parking', 'swimming', 'gym', 'wi-fi'],
+      details: [
+        { unit: 'Square Feet', value: 2000, icon: '/assets/icons/house-size-icon.svg' },
+        { unit: 'Bedrooms', value: 4, icon: '/assets/icons/bedroom-icon.svg' },
+        { unit: 'Bathrooms', value: 3, icon: '/assets/icons/bathroom-icon.svg' },
+      ],
+      facilities: [
+        { name: 'car parking', icon: '/assets/icons/car-parking-icon.svg' },
+        { name: 'swimming', icon: '/assets/icons/swimming-icon.svg' },
+        { name: 'gym', icon: '/assets/icons/gym-icon.svg' },
+        { name: 'wi-fi', icon: '/assets/icons/wifi-icon.svg' },
+      ],
       gallery: ['https://example.com/house2/img1.jpg', 'https://example.com/house2/img2.jpg'],
       reviews: [
         {
@@ -56,10 +68,15 @@ export const useAppStore = defineStore('store', () => {
       address: '789 Pine Rd, Cityville',
       rating: 4.0,
       reviewCounts: 10,
-      sqft: 1500,
-      bedrooms: 3,
-      bathrooms: 2,
-      facilities: ['wi-fi', 'restaurant'],
+      details: [
+        { unit: 'Square Feet', value: 1500, icon: '/assets/icons/house-size-icon.svg' },
+        { unit: 'Bedrooms', value: 3, icon: '/assets/icons/bedroom-icon.svg' },
+        { unit: 'Bathrooms', value: 2, icon: '/assets/icons/bathroom-icon.svg' },
+      ],
+      facilities: [
+        { name: 'wi-fi', icon: '/assets/icons/wifi-icon.svg' },
+        { name: 'restaurant', icon: '/assets/icons/restaurant-icon.svg' },
+      ],
       gallery: ['https://example.com/house3/img1.jpg', 'https://example.com/house3/img2.jpg'],
       reviews: [
         {
@@ -78,10 +95,15 @@ export const useAppStore = defineStore('store', () => {
       address: '101 Cedar Ln, Suburbia',
       rating: 4.5,
       reviewCounts: 18,
-      sqft: 1800,
-      bedrooms: 3,
-      bathrooms: 2,
-      facilities: ['car parking', 'wi-fi'],
+      details: [
+        { unit: 'Square Feet', value: 1800, icon: '/assets/icons/house-size-icon.svg' },
+        { unit: 'Bedrooms', value: 3, icon: '/assets/icons/bedroom-icon.svg' },
+        { unit: 'Bathrooms', value: 2, icon: '/assets/icons/bathroom-icon.svg' },
+      ],
+      facilities: [
+        { name: 'car parking', icon: '/assets/icons/car-parking-icon.svg' },
+        { name: 'wi-fi', icon: '/assets/icons/wifi-icon.svg' },
+      ],
       gallery: ['https://example.com/house4/img1.jpg', 'https://example.com/house4/img2.jpg'],
       reviews: [
         {
@@ -100,10 +122,18 @@ export const useAppStore = defineStore('store', () => {
       address: '202 Birch St, Downtown',
       rating: 4.9,
       reviewCounts: 25,
-      sqft: 2200,
-      bedrooms: 4,
-      bathrooms: 3,
-      facilities: ['car parking', 'swimming', 'gym', 'restaurant', 'wi-fi'],
+      details: [
+        { unit: 'Square Feet', value: 2200, icon: '/assets/icons/house-size-icon.svg' },
+        { unit: 'Bedrooms', value: 4, icon: '/assets/icons/bedroom-icon.svg' },
+        { unit: 'Bathrooms', value: 3, icon: '/assets/icons/bathroom-icon.svg' },
+      ],
+      facilities: [
+        { name: 'car parking', icon: '/assets/icons/car-parking-icon.svg' },
+        { name: 'swimming', icon: '/assets/icons/swimming-icon.svg' },
+        { name: 'gym', icon: '/assets/icons/gym-icon.svg' },
+        { name: 'restaurant', icon: '/assets/icons/restaurant-icon.svg' },
+        { name: 'wi-fi', icon: '/assets/icons/wifi-icon.svg' },
+      ],
       gallery: ['https://example.com/house5/img1.jpg', 'https://example.com/house5/img2.jpg'],
       reviews: [
         {
@@ -122,10 +152,12 @@ export const useAppStore = defineStore('store', () => {
       address: '303 Elm Dr, Countryside',
       rating: 4.1,
       reviewCounts: 12,
-      sqft: 1000,
-      bedrooms: 2,
-      bathrooms: 1,
-      facilities: ['car parking'],
+      details: [
+        { unit: 'Square Feet', value: 1000, icon: '/assets/icons/house-size-icon.svg' },
+        { unit: 'Bedrooms', value: 2, icon: '/assets/icons/bedroom-icon.svg' },
+        { unit: 'Bathrooms', value: 1, icon: '/assets/icons/bathroom-icon.svg' },
+      ],
+      facilities: [{ name: 'car parking', icon: '/assets/icons/car-parking-icon.svg' }],
       gallery: ['https://example.com/house6/img1.jpg', 'https://example.com/house6/img2.jpg'],
       reviews: [
         {
@@ -142,13 +174,17 @@ export const useAppStore = defineStore('store', () => {
       name: 'City Apartment',
       price: 280000,
       address: '404 Spruce St, Metropolis',
-
       rating: 3.9,
       reviewCounts: 8,
-      sqft: 900,
-      bedrooms: 1,
-      bathrooms: 1,
-      facilities: ['wi-fi', 'restaurant'],
+      details: [
+        { unit: 'Square Feet', value: 900, icon: '/assets/icons/house-size-icon.svg' },
+        { unit: 'Bedrooms', value: 1, icon: '/assets/icons/bedroom-icon.svg' },
+        { unit: 'Bathrooms', value: 1, icon: '/assets/icons/bathroom-icon.svg' },
+      ],
+      facilities: [
+        { name: 'wi-fi', icon: '/assets/icons/wifi-icon.svg' },
+        { name: 'restaurant', icon: '/assets/icons/restaurant-icon.svg' },
+      ],
       gallery: ['https://example.com/house7/img1.jpg', 'https://example.com/house7/img2.jpg'],
       reviews: [
         {
@@ -165,13 +201,17 @@ export const useAppStore = defineStore('store', () => {
       name: 'Suburban Bungalow',
       price: 350000,
       address: '505 Willow Ave, Greenfields',
-
       rating: 4.3,
       reviewCounts: 20,
-      sqft: 1600,
-      bedrooms: 3,
-      bathrooms: 2,
-      facilities: ['car parking', 'wi-fi'],
+      details: [
+        { unit: 'Square Feet', value: 1600, icon: '/assets/icons/house-size-icon.svg' },
+        { unit: 'Bedrooms', value: 3, icon: '/assets/icons/bedroom-icon.svg' },
+        { unit: 'Bathrooms', value: 2, icon: '/assets/icons/bathroom-icon.svg' },
+      ],
+      facilities: [
+        { name: 'car parking', icon: '/assets/icons/car-parking-icon.svg' },
+        { name: 'wi-fi', icon: '/assets/icons/wifi-icon.svg' },
+      ],
       gallery: ['https://example.com/house8/img1.jpg', 'https://example.com/house8/img2.jpg'],
       reviews: [
         {
@@ -188,13 +228,19 @@ export const useAppStore = defineStore('store', () => {
       name: 'Penthouse Suite',
       price: 750000,
       address: '606 Chestnut Blvd, Uptown',
-
       rating: 4.7,
       reviewCounts: 30,
-      sqft: 2500,
-      bedrooms: 5,
-      bathrooms: 4,
-      facilities: ['car parking', 'swimming', 'gym', 'wi-fi'],
+      details: [
+        { unit: 'Square Feet', value: 2500, icon: '/assets/icons/house-size-icon.svg' },
+        { unit: 'Bedrooms', value: 5, icon: '/assets/icons/bedroom-icon.svg' },
+        { unit: 'Bathrooms', value: 4, icon: '/assets/icons/bathroom-icon.svg' },
+      ],
+      facilities: [
+        { name: 'car parking', icon: '/assets/icons/car-parking-icon.svg' },
+        { name: 'swimming', icon: '/assets/icons/swimming-icon.svg' },
+        { name: 'gym', icon: '/assets/icons/gym-icon.svg' },
+        { name: 'wi-fi', icon: '/assets/icons/wifi-icon.svg' },
+      ],
       gallery: ['https://example.com/house9/img1.jpg', 'https://example.com/house9/img2.jpg'],
       reviews: [
         {
@@ -211,13 +257,17 @@ export const useAppStore = defineStore('store', () => {
       name: 'Country Estate',
       price: 500000,
       address: '707 Laurel Rd, Ruralville',
-
       rating: 4.4,
       reviewCounts: 16,
-      sqft: 3000,
-      bedrooms: 4,
-      bathrooms: 3,
-      facilities: ['car parking', 'swimming'],
+      details: [
+        { unit: 'Square Feet', value: 3000, icon: '/assets/icons/house-size-icon.svg' },
+        { unit: 'Bedrooms', value: 4, icon: '/assets/icons/bedroom-icon.svg' },
+        { unit: 'Bathrooms', value: 3, icon: '/assets/icons/bathroom-icon.svg' },
+      ],
+      facilities: [
+        { name: 'car parking', icon: '/assets/icons/car-parking-icon.svg' },
+        { name: 'swimming', icon: '/assets/icons/swimming-icon.svg' },
+      ],
       gallery: ['https://example.com/house10/img1.jpg', 'https://example.com/house10/img2.jpg'],
       reviews: [
         {

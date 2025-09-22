@@ -26,7 +26,7 @@ defineProps({
   align-items: center;
   gap: 5px;
 
-  max-width: 100px;
+  width: 100px;
   padding: 10px;
   border-radius: 12px;
   box-shadow: 0 10px 10px rgb(0, 0, 0, 0.1);
