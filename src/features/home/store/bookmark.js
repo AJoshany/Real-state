@@ -17,12 +17,10 @@ export const useBookmarkStroe = defineStore('bookmark', () => {
       .from('userBookmarks')
       .select('property_id')
       .eq('user_id', authStore.user.id)
-    userBookmarks.value = data.map((p) => p.property_id)
-
-    appStore.houses = appStore.houses.map((house) => ({
-      ...house,
-      isBookmarked: userBookmarks.value.includes(house.id),
-    }))
+    userBookmarks.value = new Set([...data.map((p) => p.property_id)])
+    appStore.houses.forEach((house) => {
+      house.isBookmarked = userBookmarks.value.has(String(house.id))
+    })
   }
 
   async function toggleBookmark(house) {
