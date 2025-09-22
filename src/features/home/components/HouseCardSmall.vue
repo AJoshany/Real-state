@@ -41,6 +41,7 @@ const bookmarkStore = useBookmarkStroe()
         />
       </span>
     </div>
+    <slot></slot>
   </figure>
 </template>
 

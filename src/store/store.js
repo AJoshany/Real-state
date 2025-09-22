@@ -284,6 +284,9 @@ export const useAppStore = defineStore('store', () => {
   const bookmarkedHouses = computed(() => {
     return houses.filter((h) => h.isBookmarked)
   })
+  const bookedHouses = computed(() => {
+    return houses.filter((h) => h.isBooked)
+  })
 
   const bookedEstates = ref([])
 
@@ -328,6 +331,7 @@ export const useAppStore = defineStore('store', () => {
     houses,
     bookedEstates,
     bookmarkedHouses,
+    bookedHouses,
     loadbookedEstates,
     toggleBookedEstate,
     findHouseById,
