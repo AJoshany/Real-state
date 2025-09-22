@@ -64,5 +64,6 @@ defineProps({
 
 .detail-unit {
   font-size: 1.2rem;
+  color: var(--color-text-secondary);
 }
 </style>

@@ -27,7 +27,13 @@
           Review
         </p>
       </div>
-      <estate-gallery v-if="whichTab == 'Gallery'" :house="house" />
+
+      <Transition name="fade" mode="out-in">
+        <estate-gallery v-if="whichTab == 'Gallery'" :house="house" />
+      </Transition>
+      <Transition name="fade" mode="out-in">
+        <description-tab v-if="whichTab == 'Description'" :house="house" />
+      </Transition>
     </section>
   </main>
 </template>
@@ -40,11 +46,12 @@ import { onMounted, ref } from 'vue'
 import EstateHeader from '../components/EstateHeader.vue'
 import EstateTitle from '../components/EstateTitle.vue'
 import EstateGallery from '../components/EstateGallery.vue'
+import DescriptionTab from '../components/DescriptionTab.vue'
 
 const appStore = useAppStore()
 const route = useRoute()
 const showBookBtn = ref(false)
-const whichTab = ref('')
+const whichTab = ref('Description')
 
 const houseId = route.params.id
 const house = appStore.findHouseById(+houseId)
@@ -64,12 +71,26 @@ defineOptions({
 </script>
 
 <style lang="scss" scoped>
+.fade-enter-active {
+  transition: opacity 0.5s ease-in;
+}
+
+.fade-enter-from {
+  opacity: 0;
+}
+.fade-enter-to {
+  opacity: 1;
+}
+.fade-leave-to {
+  opacity: 0;
+}
+
 .estate__container {
   padding: 0 2rem;
   margin-bottom: 90px;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1.5rem;
 }
 
 .estate__body__navbar {
@@ -78,7 +99,7 @@ defineOptions({
   justify-content: space-around;
   font-size: 1.4rem;
   font-weight: 500;
-  margin-top: 1rem;
+  margin-top: 3rem;
 }
 
 .estate__nav-item {
@@ -88,6 +109,7 @@ defineOptions({
   align-items: center;
   justify-content: center;
   border-bottom: 3px solid var(--color-gray-100);
+  transition: all 0.5s ease-in;
 }
 .nav-active {
   color: var(--color-primary);
