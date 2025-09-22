@@ -19,6 +19,8 @@
   --color-gray-400: #6a6a6a;
   --color-gray-500: #5c5c5c;
   --color-white: #ffffff;
+  --color-red-600: #ed1c24;
+  --color-red-600-hover: #c70d13;
 
   --radius-xsm: 0.5rem;
   --radius-sm: 1rem;
