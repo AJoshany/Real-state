@@ -9,7 +9,7 @@
     </div>
     <div class="estate__header__btns">
       <div>
-        <div class="header__icon">
+        <div @click="handleBackBtn" class="header__icon">
           <img src="/assets/icons/back.svg" alt="back" />
         </div>
       </div>
@@ -26,12 +26,19 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
+
 defineProps({
   house: {
     type: Object,
     required: true,
   },
 })
+const router = useRouter()
+
+function handleBackBtn() {
+  router.go(-1)
+}
 </script>
 
 <style scoped>
