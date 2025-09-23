@@ -5,7 +5,7 @@ import { useAuthStore } from '@/features/auth/store/auth'
 import { createPinia } from 'pinia'
 import HomePage from '@/features/home/pages/HomePage.vue'
 import EstatePage from '@/features/estate/pages/EstatePage.vue'
-import Dashboard from '@/features/dashboard/pages/Dashboard.vue'
+import DashBoard from '@/features/dashboard/pages/DashBoard.vue'
 
 const pinia = createPinia()
 const authStore = useAuthStore(pinia)
@@ -55,7 +55,7 @@ const routes = [
   {
     path: '/dashboard',
     name: 'DashBoard',
-    component: Dashboard,
+    component: DashBoard,
     beforeEnter: async (to, from, next) => {
       if (await isLogin()) {
         next()
