@@ -41,6 +41,7 @@ defineOptions({
 
 onMounted(async () => {
   await bookmarkStore.loadBookmarks()
+  await appStore.loadbookedEstates()
 })
 </script>
 
