@@ -5,7 +5,10 @@
       <h2 class="header__title">Favorite Home</h2>
     </div>
     <div class="image-container">
-      <img class="user-image" src="" />
+      <img
+        class="user-image"
+        src="https://www.pngitem.com/pimgs/m/404-4042710_circle-profile-picture-png-transparent-png.png"
+      />
     </div>
   </header>
 </template>

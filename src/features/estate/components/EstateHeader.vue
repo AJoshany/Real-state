@@ -1,11 +1,7 @@
 <template>
   <section class="estate__header">
     <div class="header__img-sec">
-      <img
-        src="https://www.tomferry.com/wp-content/uploads/2021/11/AdobeStock_220757323.jpg"
-        class="estate__header__img"
-        alt="estate pic"
-      />
+      <img :src="house.gallery[0]" class="estate__header__img" alt="estate pic" />
     </div>
     <div class="estate__header__btns">
       <div>
@@ -44,11 +40,15 @@ function handleBackBtn() {
 <style scoped>
 .estate__header {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .header__img-sec {
   height: 380px;
   width: 100%;
   overflow: hidden;
+  max-width: 500px;
 }
 
 .estate__header__img {

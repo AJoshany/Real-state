@@ -2,11 +2,7 @@
   <RouterLink :to="`/house/${house.id}`">
     <section class="detailed-card">
       <div class="dcard__img-sec">
-        <img
-          class="dcard__img-sec"
-          src="https://images2.dwell.com/photos/6176523132546707456/6626530906155339776/original.jpg?auto=format&q=35&w=800"
-          alt=""
-        />
+        <img class="dcard__img-sec" :src="house.gallery[1]" alt="" />
       </div>
       <div class="dcard__details">
         <div class="dcard__datatils__header">
