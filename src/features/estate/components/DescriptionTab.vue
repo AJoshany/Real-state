@@ -19,12 +19,15 @@
       ></facility-icon>
     </icons-group>
   </section>
+
+  <description-address />
 </template>
 
 <script setup>
 import IconsGroup from '../components/IconsGroup.vue'
 import FacilityIcon from '../components/FacilityIcon.vue'
 import DetailIcon from '../components/DetailIcon.vue'
+import DescriptionAddress from './DescriptionAddress.vue'
 
 defineProps({
   house: {

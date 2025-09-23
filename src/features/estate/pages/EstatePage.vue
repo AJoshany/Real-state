@@ -34,6 +34,9 @@
       <Transition name="fade" mode="out-in">
         <description-tab v-if="whichTab == 'Description'" :house="house" />
       </Transition>
+      <Transition name="fade" mode="out-in">
+        <estate-review-tab v-if="whichTab == 'Review'" :reviews="house.reviews" />
+      </Transition>
     </section>
   </main>
 </template>
@@ -47,6 +50,7 @@ import EstateHeader from '../components/EstateHeader.vue'
 import EstateTitle from '../components/EstateTitle.vue'
 import EstateGallery from '../components/EstateGallery.vue'
 import DescriptionTab from '../components/DescriptionTab.vue'
+import EstateReviewTab from '../components/EstateReviewTab.vue'
 
 const appStore = useAppStore()
 const route = useRoute()
