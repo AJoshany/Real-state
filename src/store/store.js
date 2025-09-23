@@ -545,19 +545,27 @@ export const useAppStore = defineStore('store', () => {
     return houses.filter((h) => h.isBookmarked)
   })
   const bookedHouses = computed(() => {
-    return houses.filter((h) => h.isBooked)
+    return houses.filter((h) => {
+      return userBookedHouseIds.value.includes(h.id)
+    })
   })
 
   const bookedEstates = ref([])
+  const userBookedHouseIds = ref([])
 
   const authStore = useAuthStore()
 
   async function loadbookedEstates() {
     await authStore.getUser()
     if (!authStore.user) return false
-    let { data } = await supabase.from('bookedEstates').select('estate_id')
-    bookedEstates.value = data.map((e) => e.estate_id)
+    let { data: allBooked } = await supabase.from('bookedEstates').select('estate_id')
+    bookedEstates.value = allBooked.map((e) => e.estate_id)
 
+    let { data: userBooked } = await supabase
+      .from('bookedEstates')
+      .select('estate_id')
+      .eq('user_id', authStore.user.id)
+    userBookedHouseIds.value = [...new Set([...userBooked.map((e) => e.estate_id)])]
     houses.forEach((house) => {
       house.isBooked = bookedEstates.value.includes(house.id)
     })
@@ -592,6 +600,7 @@ export const useAppStore = defineStore('store', () => {
     bookedEstates,
     bookmarkedHouses,
     bookedHouses,
+    userBookedHouseIds,
     loadbookedEstates,
     toggleBookedEstate,
     findHouseById,
