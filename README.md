@@ -14,7 +14,7 @@ Vue.js 3, Pinia, Vue Router, SCSS, Supabase, Figma, Team Collaboration (Git & Gi
 
 ## ⚙️ Setup
 1. Clone the repository  
-   git clone https://github.com/your-username/real-estate-app.git  
+   git clone https://github.com/AJoshany/real-estate-app.git  
    cd real-estate-app  
 
 2. Install dependencies  
