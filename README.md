@@ -1,35 +1,34 @@
-# real-estate
+# 🏠 Real Estate Web App
+A modern and responsive Real Estate Management Web Application built with Vue.js, featuring dynamic property listings, user authentication, and a scalable frontend architecture. The project was developed collaboratively using Figma for UI design and Supabase for backend services.
 
-This template should help get you started developing with Vue 3 in Vite.
+## 🚀 Tech Stack
+Vue.js 3, Pinia, Vue Router, SCSS, Supabase, Figma, Team Collaboration (Git & GitHub)
 
-## Recommended IDE Setup
+## 🎨 Features
+- Dynamic property listings with search and filter  
+- User authentication via Supabase  
+- Centralized state management with Pinia  
+- Organized navigation using Vue Router  
+- Fully responsive SCSS-based design  
+- Collaborative workflow and clean code structure  
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## ⚙️ Setup
+1. Clone the repository  
+   git clone https://github.com/your-username/real-estate-app.git  
+   cd real-estate-app  
 
-## Customize configuration
+2. Install dependencies  
+   npm install  
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+3. Run the development server  
+   npm run dev  
 
-## Project Setup
+## 🧑‍💻 Team Collaboration
+Developed by a team using Figma for design, GitHub for version control, and task management tools for smooth collaboration and high-quality delivery.
 
-```sh
-npm install
-```
+## 📸 Design
+The interface was designed in Figma to ensure a modern and user-friendly experience.  
+Figma link: [https://www.figma.com/](https://www.figma.com/design/AAYoqfXz4v4O3mE8Kqs2Cb/Real-Estate-Project?node-id=0-1&t=bxGhcSwkLtpejakc-1)
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+## 🙌 Acknowledgements
+Thanks to all team members for their collaboration and contributions to this project.
